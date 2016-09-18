@@ -19,6 +19,10 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private float xCoordinate;
+    private float yCoordinate;
+
+
 
     FragmentManager fragmentManager = getSupportFragmentManager();
     FloatingActionButton fab_add;
@@ -40,6 +44,33 @@ public class MainActivity extends AppCompatActivity
 
     fab_add = ( FloatingActionButton)findViewById(R.id.fab);
         //FA Button to add a new Canvas
+
+//        fab_add.setOnTouchListener(new View.OnTouchListener(){
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//                switch(motionEvent.getActionMasked()){
+//                    case MotionEvent.ACTION_DOWN:
+//                        xCoordinate = view.getX() - motionEvent.getRawX();
+//                        yCoordinate = view.getY() - motionEvent.getRawY();
+//                        break;
+//                    case MotionEvent.ACTION_MOVE:
+//                        view.animate().x(motionEvent.getRawX() + xCoordinate).y(motionEvent.getRawY() + yCoordinate).setDuration(0).start();
+//                        break;
+//                    default:
+//                        return false;
+//                }
+//                Fragment_DialogActivity Fragment_dialog = new Fragment_DialogActivity();
+//                Fragment_dialog.show(fragmentManager,"Alert Dialog Fragment");
+//
+//                return true;
+//            }
+//        });
+//        fab_add.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                fab_add.startAnimation(ro);
+//            }
+//        });
 
         fab_add.setOnClickListener(new View.OnClickListener() {
             @Override
