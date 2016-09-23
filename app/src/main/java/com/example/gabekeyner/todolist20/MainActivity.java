@@ -15,6 +15,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,8 +40,12 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        final Animation animAnticipateOvershoot = AnimationUtils.loadAnimation(this, R.anim.anticipate_overshoot);
+
 
 
     fab_add = ( FloatingActionButton)findViewById(R.id.fab);
@@ -75,6 +81,7 @@ public class MainActivity extends AppCompatActivity
         fab_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                fab_add.startAnimation(animAnticipateOvershoot);
 
                 Fragment_DialogActivity Fragment_dialog = new Fragment_DialogActivity();
                 Fragment_dialog.show(fragmentManager,"Alert Dialog Fragment");
@@ -153,4 +160,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
